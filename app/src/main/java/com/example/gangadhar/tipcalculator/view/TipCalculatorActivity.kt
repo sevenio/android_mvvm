@@ -7,13 +7,13 @@ import android.view.Menu
 import android.view.MenuItem
 import com.example.gangadhar.tipcalculator.R
 
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_tipcalculator.*
 
 class TipCalculatorActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_tipcalculator)
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
