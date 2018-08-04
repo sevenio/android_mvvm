@@ -28,7 +28,10 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <include layout="@layout/content_tipcalculator" />
+        <include
+            android:id="@+id/content"
+            app:calculator="@{calculator}"
+            layout="@layout/content_tipcalculator" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"

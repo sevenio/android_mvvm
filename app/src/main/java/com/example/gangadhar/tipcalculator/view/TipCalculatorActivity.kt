@@ -14,7 +14,7 @@ class TipCalculatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_tipcalculator)
-        binding.calculator = CalculatorViewModel()
+        binding.calculator = CalculatorViewModel(application)
         setSupportActionBar(binding.toolbar)
 
     }
