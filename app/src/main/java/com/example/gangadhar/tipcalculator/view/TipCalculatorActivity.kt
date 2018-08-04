@@ -1,5 +1,6 @@
 package com.example.gangadhar.tipcalculator.view
 
+import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -14,7 +15,7 @@ class TipCalculatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_tipcalculator)
-        binding.calculator = CalculatorViewModel(application)
+        binding.calculator = ViewModelProviders.of(this).get(CalculatorViewModel::class.java)
         setSupportActionBar(binding.toolbar)
 
     }

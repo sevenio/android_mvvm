@@ -6,7 +6,7 @@ import com.example.gangadhar.tipcalculator.R
 import com.example.gangadhar.tipcalculator.model.RestaurantCalculator
 import com.example.gangadhar.tipcalculator.model.TipCalculation
 
-class CalculatorViewModel(val app: Application, val calculator: RestaurantCalculator = RestaurantCalculator()) : BaseObservable() {
+class CalculatorViewModel @JvmOverloads constructor(app: Application, val calculator: RestaurantCalculator = RestaurantCalculator()) : ObservableViewModel(app) {
     var inputCheckAmount = ""
     var inputTipPercentage = ""
     var outputCheckAmount = ""
@@ -20,9 +20,9 @@ class CalculatorViewModel(val app: Application, val calculator: RestaurantCalcul
 
     private fun updateOutputs(tipCalculation: TipCalculation) {
 
-        outputCheckAmount = app.getString(R.string.dollar_amount, tipCalculation.checkAmount)
-        outputTipAmount = app.getString(R.string.dollar_amount, tipCalculation.tipAmount)
-        outputGrandTotal = app.getString(R.string.dollar_amount, tipCalculation.grandTotal)
+        outputCheckAmount = getApplication<Application>().getString(R.string.dollar_amount, tipCalculation.checkAmount)
+        outputTipAmount = getApplication<Application>().getString(R.string.dollar_amount, tipCalculation.tipAmount)
+        outputGrandTotal = getApplication<Application>().getString(R.string.dollar_amount, tipCalculation.grandTotal)
     }
 
     fun calculateTip() {
