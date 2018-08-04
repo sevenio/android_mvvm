@@ -20,7 +20,11 @@ abstract class ObservableViewModel(app: Application) : AndroidViewModel(app), Ob
     }
 
     fun notifyChange() {
-        mCallbacks.notifyChange(this, BR._all)
+
+        mCallbacks.notifyChange(this, BR.outputCheckAmount)
+        mCallbacks.notifyChange(this, BR.outputTipAmount)
+        mCallbacks.notifyChange(this, BR.outputGrandTotal)
+
     }
 
 }
