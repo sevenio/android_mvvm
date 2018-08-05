@@ -1,24 +1,28 @@
 package com.example.gangadhar.tipcalculator.viewmodel
 
 import android.app.Application
-import android.databinding.BaseObservable
 import android.databinding.Bindable
 import com.example.gangadhar.tipcalculator.R
 import com.example.gangadhar.tipcalculator.model.RestaurantCalculator
 import com.example.gangadhar.tipcalculator.model.TipCalculation
 
 class CalculatorViewModel @JvmOverloads constructor(app: Application, val calculator: RestaurantCalculator = RestaurantCalculator()) : ObservableViewModel(app) {
+    var lastTipCalculation = TipCalculation()
+
     @Bindable
     var inputCheckAmount = ""
     @Bindable
     var inputTipPercentage = ""
     @get:Bindable
-    var outputCheckAmount = ""
+    val outputCheckAmount
+        get() = getApplication<Application>().getString(R.string.dollar_amount, lastTipCalculation.checkAmount)
     @get:Bindable
-    var outputTipAmount = ""
+    val outputTipAmount
+        get() = getApplication<Application>().getString(R.string.dollar_amount, lastTipCalculation.tipAmount)
     @get:Bindable
-    var outputGrandTotal = ""
-    var tipCalculation = TipCalculation()
+    val outputGrandTotal
+        get() = getApplication<Application>().getString(R.string.dollar_amount, lastTipCalculation.grandTotal)
+
 
     init {
         updateOutputs(TipCalculation())
@@ -26,24 +30,21 @@ class CalculatorViewModel @JvmOverloads constructor(app: Application, val calcul
 
     private fun updateOutputs(tipCalculation: TipCalculation) {
 
-        outputCheckAmount = getApplication<Application>().getString(R.string.dollar_amount, tipCalculation.checkAmount)
-        outputTipAmount = getApplication<Application>().getString(R.string.dollar_amount, tipCalculation.tipAmount)
-        outputGrandTotal = getApplication<Application>().getString(R.string.dollar_amount, tipCalculation.grandTotal)
+        lastTipCalculation = tipCalculation
+        notifyChange()
+
     }
 
     fun calculateTip() {
         val checkAmount = inputCheckAmount.toDoubleOrNull()
         val tipPercentage = inputTipPercentage.toIntOrNull()
         if (checkAmount != null && tipPercentage != null) {
-            tipCalculation = calculator.calculateTip(checkAmount, tipPercentage)
-            updateOutputs(tipCalculation)
-            notifyChange()
+            lastTipCalculation = calculator.calculateTip(checkAmount, tipPercentage)
+            updateOutputs(lastTipCalculation)
 
         }
 
     }
-
-
 
 
 }

@@ -43,9 +43,9 @@ class CalculatorViewModelTest {
         stubResource(1.5, "$1.50")
         stubResource(11.5, "$11.50")
         calculatorViewModel.calculateTip()
-        assertEquals(10.00, calculatorViewModel.tipCalculation.checkAmount)
-        assertEquals(1.50, calculatorViewModel.tipCalculation.tipAmount)
-        assertEquals(11.50, calculatorViewModel.tipCalculation.grandTotal)
+        assertEquals(10.00, calculatorViewModel.lastTipCalculation.checkAmount)
+        assertEquals(1.50, calculatorViewModel.lastTipCalculation.tipAmount)
+        assertEquals(11.50, calculatorViewModel.lastTipCalculation.grandTotal)
 
     }
 
