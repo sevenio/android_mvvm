@@ -3,5 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.gangadhar.tipcalculator.view.TipCalculatorActivity">
 
-    <item android:id="@+id/action_save" android:title="@string/action_save" />
+    <item android:id="@+id/action_save" android:title="@string/action_save" tools:title="save" />
+    <item android:id="@+id/action_load" android:title="@string/action_load" tools:title="load" />
+
 </menu>

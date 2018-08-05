@@ -11,7 +11,12 @@ import com.example.gangadhar.tipcalculator.R
 import com.example.gangadhar.tipcalculator.databinding.ActivityTipcalculatorBinding
 import com.example.gangadhar.tipcalculator.viewmodel.CalculatorViewModel
 
-class TipCalculatorActivity : AppCompatActivity(), SaveDialogFragment.Callback {
+class TipCalculatorActivity : AppCompatActivity(), SaveDialogFragment.Callback,LoadDialogFragment.Callback {
+    override fun onTipSelected(name: String) {
+        Snackbar.make(binding.root, "load", Snackbar.LENGTH_SHORT).show()
+
+    }
+
     override fun onSaveTip(locationName: String) {
         binding.calculator?.saveCurrentTip(locationName)
         Snackbar.make(binding.root, "Saved $locationName", Snackbar.LENGTH_SHORT).show()
@@ -29,10 +34,17 @@ class TipCalculatorActivity : AppCompatActivity(), SaveDialogFragment.Callback {
                 showSaveDialog()
                 true
             }
+            R.id.action_load -> {
+                showLoadDialog()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
-
+    private fun showLoadDialog() {
+        val saveFragment = LoadDialogFragment()
+        saveFragment.show(supportFragmentManager, "LoadDialog")
+    }
     private fun showSaveDialog() {
         val saveFragment = SaveDialogFragment()
         saveFragment.show(supportFragmentManager, "SaveDialog")
