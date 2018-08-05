@@ -14,12 +14,12 @@ class RestaurantCalculatorTest {
 
     @Test
     fun testCalculateTip() {
-        val baseCase = TipCalculation(10.00)
+        val baseCase = TipCalculation(checkAmount = 10.00)
         val testVals = listOf(baseCase.copy(tipPercentage = 25, tipAmount = 2.5, grandTotal = 12.50),
                 baseCase.copy(tipPercentage = 15, tipAmount = 1.5, grandTotal = 11.50),
                 baseCase.copy(tipPercentage = 18, tipAmount = 1.8, grandTotal = 11.80))
         testVals.forEach {
-            assertEquals(it, calculator.calculateTip(it.checkAmount, it.tipPercentage)) }
-
+            assertEquals(it, calculator.calculateTip(it.checkAmount, it.tipPercentage))
+        }
     }
 }

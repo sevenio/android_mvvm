@@ -37,7 +37,7 @@ class CalculatorViewModelTest {
 
         calculatorViewModel.inputCheckAmount = "10.00"
         calculatorViewModel.inputTipPercentage = "15"
-        val stub = TipCalculation(10.00, tipAmount = 1.5, grandTotal = 11.50)
+        val stub = TipCalculation(checkAmount = 10.00, tipAmount = 1.5, grandTotal = 11.50)
         `when`(mockCalculator.calculateTip(10.00, 15)).thenReturn(stub)
         stubResource(10.0, "$10.00")
         stubResource(1.5, "$1.50")
@@ -54,7 +54,7 @@ class CalculatorViewModelTest {
 
         calculatorViewModel.inputCheckAmount = "10.00"
         calculatorViewModel.inputTipPercentage = "15"
-        val stub = TipCalculation(10.00, tipAmount = 1.5, grandTotal = 11.50)
+        val stub = TipCalculation(checkAmount = 10.00, tipAmount = 1.5, grandTotal = 11.50)
         `when`(mockCalculator.calculateTip(10.00, 15)).thenReturn(stub)
         stubResource(10.0, "$10.00")
         stubResource(1.5, "$1.50")
