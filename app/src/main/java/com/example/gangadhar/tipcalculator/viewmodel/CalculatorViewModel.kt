@@ -23,11 +23,18 @@ class CalculatorViewModel @JvmOverloads constructor(app: Application, val calcul
     val outputGrandTotal
         get() = getApplication<Application>().getString(R.string.dollar_amount, lastTipCalculation.grandTotal)
 
-
+    @get:Bindable
+    val locationName get() = lastTipCalculation.locationName
     init {
         updateOutputs(TipCalculation())
     }
 
+
+    fun saveCurrentTip(name: String){
+        val tipToSave = lastTipCalculation.copy(locationName = name)
+        calculator.saveTipCalculation(tipToSave)
+        updateOutputs(tipToSave)
+    }
     private fun updateOutputs(tipCalculation: TipCalculation) {
 
         lastTipCalculation = tipCalculation

@@ -150,5 +150,19 @@
             </LinearLayout>
 
         </LinearLayout>
+        <TextView
+            android:id="@+id/calculation_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Base.TextAppearance.AppCompat.Headline"
+            android:layout_margin="8dp"
+            android:textAlignment="center"
+            tools:text="veggie"
+            android:textColor="@android:color/black"
+            android:text="@{calculator.locationName}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/calculation_outputs"/>
     </android.support.constraint.ConstraintLayout>
 </layout>

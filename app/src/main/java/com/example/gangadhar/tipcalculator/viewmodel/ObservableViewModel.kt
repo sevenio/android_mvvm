@@ -24,6 +24,7 @@ abstract class ObservableViewModel(app: Application) : AndroidViewModel(app), Ob
         mCallbacks.notifyChange(this, BR.outputCheckAmount)
         mCallbacks.notifyChange(this, BR.outputTipAmount)
         mCallbacks.notifyChange(this, BR.outputGrandTotal)
+        mCallbacks.notifyChange(this, BR.locationName)
 
     }
 

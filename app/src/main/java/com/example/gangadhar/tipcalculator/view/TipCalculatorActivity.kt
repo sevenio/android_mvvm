@@ -13,17 +13,18 @@ import com.example.gangadhar.tipcalculator.viewmodel.CalculatorViewModel
 
 class TipCalculatorActivity : AppCompatActivity(), SaveDialogFragment.Callback {
     override fun onSaveTip(locationName: String) {
-        Snackbar.make(binding.root,"Saved $locationName",Snackbar.LENGTH_SHORT ).show()
+        binding.calculator?.saveCurrentTip(locationName)
+        Snackbar.make(binding.root, "Saved $locationName", Snackbar.LENGTH_SHORT).show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_main,menu)
+        menuInflater.inflate(R.menu.menu_main, menu)
         return true
 
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return when(item?.itemId){
+        return when (item?.itemId) {
             R.id.action_save -> {
                 showSaveDialog()
                 true
@@ -34,7 +35,7 @@ class TipCalculatorActivity : AppCompatActivity(), SaveDialogFragment.Callback {
 
     private fun showSaveDialog() {
         val saveFragment = SaveDialogFragment()
-        saveFragment.show(supportFragmentManager,"SaveDialog")
+        saveFragment.show(supportFragmentManager, "SaveDialog")
     }
 
     lateinit var binding: ActivityTipcalculatorBinding
