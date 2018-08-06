@@ -33,7 +33,7 @@ class SaveDialogFragment : DialogFragment() {
             editText.hint = getString(R.string.enter_location)
             AlertDialog.Builder(context)
                     .setView(editText)
-                    .setPositiveButton(getString(R.string.save), { _, _ -> onSave(editText) })
+                    .setPositiveButton(getString(R.string.save)) { _,_ -> onSave(editText) }
                     .setNegativeButton(getString(R.string.cancel), null)
                     .create()
         }

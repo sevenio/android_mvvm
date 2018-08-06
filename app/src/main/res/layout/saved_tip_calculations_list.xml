@@ -5,7 +5,8 @@
     android:id="@+id/recycler_saved_calculations"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-    tools:listItem="@layout/saved_tip_calculation_list_item">
+    tools:listitem="@layout/saved_tip_calculation_list_item">
 
 </android.support.v7.widget.RecyclerView>
